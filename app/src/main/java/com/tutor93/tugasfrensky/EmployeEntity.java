@@ -20,7 +20,12 @@ public class EmployeEntity implements Serializable {
     public static final String BOOKMARK = "isBookMark";
     public static final String AVATAR = "avatar";
 
-    @DatabaseField(columnName = ID, id = true, generatedId = true)
+
+    /*
+    * jika pake id = true, error.
+    * solved with, links: http://stackoverflow.com/questions/29894963/getdao-exception-with-generatedid-true
+    * */
+    @DatabaseField(columnName = ID, generatedId = true, allowGeneratedIdInsert = true)
     protected int id;
     @DatabaseField(columnName = NAME)
     protected String name;

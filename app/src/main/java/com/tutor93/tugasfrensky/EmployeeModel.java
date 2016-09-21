@@ -48,7 +48,8 @@ public class EmployeeModel {
     }
 
 
-    public void updateOrder(Employee employee){
+    //telah diubah tadinya parameternya butuh Employee class, menjadi EmployeEntity Class
+    public void updateOrder(EmployeEntity employee){
 
         EmployeEntity employeEntity = new EmployeEntity();
 

@@ -29,7 +29,7 @@
             >
 
             <GridView
-                android:id="@+id/gridview"
+                android:id="@+id/halamandepan_gridview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:numColumns="auto_fit"

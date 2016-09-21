@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -18,20 +18,13 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.j256.ormlite.android.apptools.OpenHelperManager;
-import com.j256.ormlite.dao.Dao;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
-import java.sql.Array;
-import java.sql.Date;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 
 import java.util.List;
-import java.util.Locale;
 
 
 public class Add_employee extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, View.OnClickListener {
@@ -58,7 +51,8 @@ public class Add_employee extends AppCompatActivity implements DatePickerDialog.
 
     private String array_spinner[];
 
-    private EmployeeModel employeeModel;
+    private EmployeeModel helper;
+    private EmployeEntity employeeList;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -86,7 +80,16 @@ public class Add_employee extends AppCompatActivity implements DatePickerDialog.
         mAdd_camera.setOnClickListener(this);
         mAdd_save.setOnClickListener(this);
 
+        mAdd_Female.setOnClickListener(this);
+        mAdd_Male.setOnClickListener(this);
+
+        //solving masalah null pake ini.
+        this.helper = new EmployeeModel(this);
+        this.employeeList = new EmployeEntity();
+
+
         spinnerData();
+        checkIntent();
 
         mAdd_JoinDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,17 +106,36 @@ public class Add_employee extends AppCompatActivity implements DatePickerDialog.
         });
     }
 
+    private void checkIntent(){
+        Intent intent = getIntent();
+
+        if (intent.getIntExtra("id", 0) != 0) {
+            //load dari employee dari database berdasarkan value intent dgn query ORMlite
+            Toast.makeText(this, "masuk query", Toast.LENGTH_SHORT).show();
+
+            employeeList = helper.getEmployeeById(intent.getIntExtra("id", 0));
+            mName.setText(employeeList.getName());
+            //mJabatan.set
+            //mMele
+            mAdd_JoinDate.setText(employeeList.getJoin());
+            mBookmark.setSelected(employeeList.isBookmark());
+           // mAdd_Age.setText(employeeList.getAge());
+            mNotes.setText(employeeList.getNotes());
+
+        }
+    }
+
 
     private void spinnerData() {
         mJabatan = (Spinner) findViewById(R.id.add_jabatan);
         ArrayAdapter<String> adapter;
         List<String> list;
 
-        list = new ArrayList<String>();
+        list = new ArrayList<>();
         list.add("Android develover");
         list.add("iOS developer");
 
-        adapter = new ArrayAdapter<String>(getApplicationContext(),
+        adapter = new ArrayAdapter<>(getApplicationContext(),
                 android.R.layout.simple_spinner_item, list);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mJabatan.setAdapter(adapter);
@@ -178,47 +200,48 @@ public class Add_employee extends AppCompatActivity implements DatePickerDialog.
         }
     }
 
-
-    private void addNewData() {
-        // Once click on "Submit", it's first creates the TeacherDetails object
-        Employee employee = new Employee();
-
-
-        /*    // Then, set all the values from user input
-            employee. = teacher_name_et.getText().toString();
-            techDetails.address = address_et.getText().toString();
-        */
-
-        /*Set all values*/
-        employee.setName(mName.getText().toString());
-        employee.setJobs("android developer");
-        employee.setIs_male(mAdd_Male.isChecked());
-        employee.setBookmark(mBookmark.isChecked());
-        employee.setAge(Integer.parseInt(mAdd_Age.getText().toString()));
-
-        /*khusus convert buat date
-        * di casting lansung gagal
-        * */
-      /*  try {
-            DateFormat formatter;
-            Date date;
-            formatter = new SimpleDateFormat("dd/mm/yyyy");
-            date = (Date) formatter.parse(mAdd_JoinDate.getText().toString());
-            employee.setJoin(date);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
-        employee.setJoin(mAdd_JoinDate.getText().toString());
-
-        //employee.setJoin((Date) mAdd_JoinDate.getText());
-        employee.setNotes(mNotes.getText().toString());
-        employee.setAvatar("belum tau cara take picture data");
-
-        Log.d("add employee", employee.getName()+ employee.getJobs());
-
-        employeeModel.insertEmployee(employee);
+    private void showToast(String setMessage) {
+        Toast.makeText(Add_employee.this, setMessage, Toast.LENGTH_SHORT).show();
 
     }
+
+    public void addNewEmployee() {
+        EmployeeModel helper = new EmployeeModel(this);
+
+        String strName = mName.getText().toString();
+        String strJabatan = mJabatan.getSelectedItem().toString();
+        boolean bolIs_male = mAdd_Male.isChecked();
+        boolean bolBookmark = mBookmark.isChecked();
+
+        int strAge = mAdd_Age.getText().toString().equals("")
+                ? 0 : Integer.parseInt(mAdd_Age.getText().toString());
+
+        String strJoin = mAdd_JoinDate.getText().toString();
+        String strNote = mNotes.getText().toString();
+        String strAvatar = "masih di ulik";
+
+        if (TextUtils.isEmpty(strName)) {
+            showToast("Please add your name !!!");
+            return;
+        }
+
+        Employee person = new Employee();
+
+
+        person.setName(strName);
+        person.setJobs(strJabatan);
+        person.setIs_male(bolIs_male);
+        person.setBookmark(bolBookmark);
+        person.setAge(strAge);
+        person.setJoin(strJoin);
+        person.setNotes(strNote);
+        person.setAvatar(strAvatar);
+
+        helper.insertEmployee(person);
+        showToast("Data susccesfully added");
+    }
+
+
 
     // Clear the entered text
     private void reset() {
@@ -228,12 +251,14 @@ public class Add_employee extends AppCompatActivity implements DatePickerDialog.
 
     @Override
     public void onClick(View view) {
-        if (view == mAdd_camera) {
+        if (view == mAdd_save) {
+           addNewEmployee();
+        } else if (view == mAdd_camera) {
             dispatchTakePictureIntent();
-        } else if (view == mAdd_save) {
-            if (checkForm() == true) {
-                addNewData();
-            }
+        } else if (view == mAdd_Female) {
+            mAdd_Male.setChecked(false);
+        } else if (view == mAdd_Male) {
+            mAdd_Female.setChecked(false);
         }
     }
 }
