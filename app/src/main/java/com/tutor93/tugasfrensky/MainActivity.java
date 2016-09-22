@@ -15,6 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -61,12 +63,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setDataToAdapter();
     }
 
-    /*private void setDataToAdapter() {
-        list = helper.getAllEmployee();
-
-        adapter = new EmpAdapter(this, R.layout.row2, list);
-        listView.setAdapter(adapter);
-    }*/
 
     @Override
     protected void onResume() {
@@ -75,7 +71,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.d(LOG, LOG + " on resume!!!!!");
 
     }
-
 
 
     private void setDataToAdapter() {

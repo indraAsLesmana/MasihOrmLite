@@ -2,6 +2,8 @@ package com.tutor93.tugasfrensky;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
+import java.io.File;
 import java.util.List;
 
 /**
@@ -50,7 +55,6 @@ public class EmpAdapter extends ArrayAdapter<EmployeEntity> implements View.OnCl
         }
 
         final EmployeEntity obj = list.get(position);
-
         holder.name = (TextView) view.findViewById(R.id.tvname);
         holder.job = (TextView) view.findViewById(R.id.tvjobs);
         holder.age = (TextView) view.findViewById(R.id.tvage);
@@ -60,12 +64,12 @@ public class EmpAdapter extends ArrayAdapter<EmployeEntity> implements View.OnCl
         holder.btnEdit = (Button) view.findViewById(R.id.btnEdit);
 
         holder.startBookmark = (ImageView) view.findViewById(R.id.startBookmarkIcon);
+        holder.profileImage = (ImageView) view.findViewById(R.id.imageProfile);
 
         /*button edit*/
         holder.btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*Log.d("EmpAdapter", "hallo world");*/
                 Intent myIntent = new Intent(mContext, Add_employee.class);
                 myIntent.putExtra("id", obj.getId());
                 mContext.startActivity(myIntent);
@@ -88,11 +92,29 @@ public class EmpAdapter extends ArrayAdapter<EmployeEntity> implements View.OnCl
             holder.gender.setText(obj.is_male() == false ? "Female" : "Male");
             holder.startBookmark.setVisibility(obj.isBookmark() ? View.VISIBLE : View.GONE);
 
+            Bitmap bitmap = new ImageSaver(mContext).
+                    setFileName(obj.getName() + ".png").
+                    setDirectoryName("images").
+                    load();
+
+            if (bitmap != null){
+                holder.profileImage.setImageBitmap(bitmap);
+            }
+
+//            load image coba
+           /* if(obj.getAvatar()!= null ){
+                Glide.with(mContext).load(new File(obj.getAvatar()))
+                        .placeholder(R.id.imageProfile)
+                        .into(holder.profileImage);
+                Log.d("nullte", " tidak null");
+            }else if (obj.getAvatar() == null){
+                Log.d("nullte", " nilainya null");
+            }*/
+
         }
 
         return view;
     }
-
 
     @Override
     public void onClick(View view) {
@@ -108,5 +130,6 @@ public class EmpAdapter extends ArrayAdapter<EmployeEntity> implements View.OnCl
         public Button btnBookmark;
         public Button btnEdit;
         public ImageView startBookmark;
+        public ImageView profileImage;
     }
 }

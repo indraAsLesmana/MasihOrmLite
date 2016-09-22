@@ -114,6 +114,7 @@ public class EmployeeModel {
         List<EmployeEntity> data = new ArrayList<EmployeEntity>();
         try {
             data = dao.queryForAll();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

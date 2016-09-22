@@ -1,7 +1,10 @@
 package com.tutor93.tugasfrensky;
 
+import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
@@ -20,6 +23,11 @@ import android.widget.Toast;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -33,6 +41,7 @@ public class Add_employee extends AppCompatActivity implements DatePickerDialog.
     private DatabaseHelper databaseHelper = null;
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
+
 
     /*define all object add_employe class*/
     private EditText mName;
@@ -53,6 +62,7 @@ public class Add_employee extends AppCompatActivity implements DatePickerDialog.
 
     private EmployeeModel helper;
     private EmployeEntity employeeList;
+    private Bitmap imageCache;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -87,7 +97,6 @@ public class Add_employee extends AppCompatActivity implements DatePickerDialog.
         this.helper = new EmployeeModel(this);
         this.employeeList = new EmployeEntity();
 
-
         spinnerData();
         checkIntent();
 
@@ -106,7 +115,8 @@ public class Add_employee extends AppCompatActivity implements DatePickerDialog.
         });
     }
 
-    private void checkIntent(){
+
+    private void checkIntent() {
         Intent intent = getIntent();
 
         if (intent.getIntExtra("id", 0) != 0) {
@@ -119,7 +129,7 @@ public class Add_employee extends AppCompatActivity implements DatePickerDialog.
             //mMele
             mAdd_JoinDate.setText(employeeList.getJoin());
             mBookmark.setSelected(employeeList.isBookmark());
-           // mAdd_Age.setText(employeeList.getAge());
+            // mAdd_Age.setText(employeeList.getAge());
             mNotes.setText(employeeList.getNotes());
 
         }
@@ -187,6 +197,9 @@ public class Add_employee extends AppCompatActivity implements DatePickerDialog.
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             mProfile_pict.setImageBitmap(imageBitmap);
+
+            //temp buat bitmap
+            imageCache = imageBitmap;
         }
     }
     /*ambil camera END*/
@@ -227,7 +240,6 @@ public class Add_employee extends AppCompatActivity implements DatePickerDialog.
 
         Employee person = new Employee();
 
-
         person.setName(strName);
         person.setJobs(strJabatan);
         person.setIs_male(bolIs_male);
@@ -235,12 +247,19 @@ public class Add_employee extends AppCompatActivity implements DatePickerDialog.
         person.setAge(strAge);
         person.setJoin(strJoin);
         person.setNotes(strNote);
-        person.setAvatar(strAvatar);
+
+        showToast("Data susccesfully added");
+
+        //coba save image
+        new ImageSaver(this).
+                setFileName(strName + ".png").
+                setDirectoryName("images").
+                save(imageCache);
+
+        person.setAvatar("images" + strName + strAge + ".png");
 
         helper.insertEmployee(person);
-        showToast("Data susccesfully added");
     }
-
 
 
     // Clear the entered text
@@ -252,7 +271,7 @@ public class Add_employee extends AppCompatActivity implements DatePickerDialog.
     @Override
     public void onClick(View view) {
         if (view == mAdd_save) {
-           addNewEmployee();
+            addNewEmployee();
         } else if (view == mAdd_camera) {
             dispatchTakePictureIntent();
         } else if (view == mAdd_Female) {
