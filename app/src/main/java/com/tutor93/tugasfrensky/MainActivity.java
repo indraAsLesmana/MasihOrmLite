@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.GridView;
@@ -61,6 +62,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         * */
         btnList.performClick();
         setDataToAdapter();
+
+        //coba gridview
+        GridView gridview = (GridView) findViewById(R.id.halamandepan_gridview);
+        gridview.setAdapter(new ImageAdapter(this));
+
+        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v,
+                                    int position, long id) {
+                Toast.makeText(MainActivity.this, "" + position,
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 

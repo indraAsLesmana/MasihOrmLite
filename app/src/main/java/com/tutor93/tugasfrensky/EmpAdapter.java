@@ -101,7 +101,7 @@ public class EmpAdapter extends ArrayAdapter<EmployeEntity> implements View.OnCl
                 holder.profileImage.setImageBitmap(bitmap);
             }
 
-//            load image coba
+//            load image coba pake glid masih error " isn't color or bitmap path"
            /* if(obj.getAvatar()!= null ){
                 Glide.with(mContext).load(new File(obj.getAvatar()))
                         .placeholder(R.id.imageProfile)
