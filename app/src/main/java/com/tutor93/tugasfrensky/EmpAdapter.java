@@ -3,7 +3,6 @@ package com.tutor93.tugasfrensky;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +11,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-
-import java.io.File;
 import java.util.List;
 
 /**
@@ -24,15 +20,15 @@ public class EmpAdapter extends ArrayAdapter<EmployeEntity> implements View.OnCl
 
     private Context mContext;
     private int row;
-    private List<EmployeEntity> list;
+    private List<EmployeEntity> listEmployeeData;
     EmployeeModel helper;
    /* ViewHolder holder;*/
 
-    public EmpAdapter(Context context, int textViewResourceId, List<EmployeEntity> list) {
-        super(context, textViewResourceId, list);
+    public EmpAdapter(Context context, int textViewResourceId, List<EmployeEntity> listEmployeeData) {
+        super(context, textViewResourceId, listEmployeeData);
         this.mContext = context;
         this.row = textViewResourceId;
-        this.list = list;
+        this.listEmployeeData = listEmployeeData;
 
         /*initial data*/
         this.helper = new EmployeeModel(mContext);
@@ -54,7 +50,7 @@ public class EmpAdapter extends ArrayAdapter<EmployeEntity> implements View.OnCl
             holder = (ViewHolder) view.getTag();
         }
 
-        final EmployeEntity obj = list.get(position);
+        final EmployeEntity obj = listEmployeeData.get(position);
         holder.name = (TextView) view.findViewById(R.id.tvname);
         holder.job = (TextView) view.findViewById(R.id.tvjobs);
         holder.age = (TextView) view.findViewById(R.id.tvage);

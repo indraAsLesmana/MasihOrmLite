@@ -10,18 +10,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-
-import java.sql.SQLException;
 import java.util.List;
-
-import static android.R.id.list;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -60,10 +54,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         /*langsung diklik ketika, onCreate
         * */
-        btnList.performClick();
-        setDataToAdapter();
 
-        //coba gridview
+        btnGrid.performClick();
+        setDataToAdapter_listview();
+        setDataToAdapter_gridview();
+
+       /* //coba gridview
         GridView gridview = (GridView) findViewById(R.id.halamandepan_gridview);
         gridview.setAdapter(new ImageAdapter(this));
 
@@ -73,23 +69,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(MainActivity.this, "" + position,
                         Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
     }
 
 
     @Override
     protected void onResume() {
         super.onResume();
-        setDataToAdapter();
+        setDataToAdapter_listview();
+        setDataToAdapter_gridview();
         Log.d(LOG, LOG + " on resume!!!!!");
 
     }
 
-
-    private void setDataToAdapter() {
+    private void setDataToAdapter_listview() {
         list = helper.getAllEmployee();
         adapter = new EmpAdapter(this, R.layout.row2, list);
         listView.setAdapter(adapter);
+    }
+
+    private void setDataToAdapter_gridview() {
+        list = helper.getAllEmployee();
+        adapter = new EmpAdapter(this, R.layout.grid2, list);
+        gridView.setAdapter(adapter);
     }
 
     @Override

@@ -20,7 +20,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-
         <LinearLayout
             android:id="@+id/gridView"
             android:layout_width="match_parent"
@@ -32,10 +31,9 @@
                 android:id="@+id/halamandepan_gridview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:numColumns="auto_fit"
+                android:numColumns="2"
                 android:gravity="center"
-                android:stretchMode="spacingWidthUniform"
-                android:columnWidth="100dp"
+                android:columnWidth="200dp"
                 android:horizontalSpacing="10dp"
                 android:verticalSpacing="24dp"
                 />
@@ -57,13 +55,12 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="grid" />
-
         <Button
             android:id="@+id/btnList"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="list" />
+            android:text="LIST" />
 
     </LinearLayout>
 
