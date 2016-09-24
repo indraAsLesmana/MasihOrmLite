@@ -35,11 +35,10 @@ public class ImageAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        /*this.helper = new EmployeeModel(mContext);
+        this.helper = new EmployeeModel(mContext);
         listEmployeeData = helper.getAllEmployee();
         return listEmployeeData.size();
-        */
-        return mThumbIds.length;
+        //return mThumbIds.length;
     }
 
 
@@ -83,19 +82,19 @@ public class ImageAdapter extends BaseAdapter {
         }
 
         final EmployeEntity obj = listEmployeeData.get(position);
-        holder.name = (TextView) view.findViewById(R.id.tvname);
+        /*holder.name = (TextView) view.findViewById(R.id.tvname);
         holder.job = (TextView) view.findViewById(R.id.tvjobs);
         holder.age = (TextView) view.findViewById(R.id.tvage);
-        holder.gender = (TextView) view.findViewById(R.id.tvgender);
+        holder.gender = (TextView) view.findViewById(R.id.tvgender);*/
 
-        holder.btnBookmark = (Button) view.findViewById(R.id.btnBookmark);
-        holder.btnEdit = (Button) view.findViewById(R.id.btnEdit);
+       /* holder.btnBookmark = (Button) view.findViewById(R.id.btnBookmark);
+        holder.btnEdit = (Button) view.findViewById(R.id.btnEdit);*/
 
         holder.startBookmark = (ImageView) view.findViewById(R.id.startBookmarkIcon);
         holder.profileImage = (ImageView) view.findViewById(R.id.imageProfile);
 
 
-        holder.btnEdit.setOnClickListener(new View.OnClickListener() {
+       /* holder.btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent myIntent = new Intent(mContext, Add_employee.class);
@@ -111,7 +110,7 @@ public class ImageAdapter extends BaseAdapter {
                 helper.updateOrder(obj);
                 notifyDataSetChanged();
             }
-        });
+        });*/
 
         if (null != holder.name && null != obj && obj.getName().length() != 0) {
             holder.name.setText(obj.getName());

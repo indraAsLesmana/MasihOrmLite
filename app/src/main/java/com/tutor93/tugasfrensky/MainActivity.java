@@ -56,11 +56,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         * */
 
         btnGrid.performClick();
-        setDataToAdapter_listview();
+//        setDataToAdapter_listview();
         setDataToAdapter_gridview();
 
-       /* //coba gridview
-        GridView gridview = (GridView) findViewById(R.id.halamandepan_gridview);
+        /*//coba gridview
+        GridView gridview = (GridView) findViewById(R.id.halamandepan_gridview);  
         gridview.setAdapter(new ImageAdapter(this));
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onResume() {
         super.onResume();
-        setDataToAdapter_listview();
+//        setDataToAdapter_listview();
         setDataToAdapter_gridview();
         Log.d(LOG, LOG + " on resume!!!!!");
 

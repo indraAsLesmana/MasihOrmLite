@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="180dp"
-    android:layout_height="180dp"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/imageProfile"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/btnoption"
-        android:src="@drawable/sample_0"
-        />
+        android:layout_height="180dp"
+        android:src="@android:drawable/sym_def_app_icon" />
 
     <ImageView
         android:id="@+id/startBookmarkIcon"
@@ -22,29 +19,31 @@
 
 
     <LinearLayout
-        android:id="@+id/btnoption"
+        android:id="@+id/btnContaitner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@id/imageProfile"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnEdit"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="1" />
 
         <Button
             android:id="@+id/btnBookmark"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="2" />
+            android:text="Bo" />
+
+        <Button
+            android:id="@+id/btnEdit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="ed" />
 
     </LinearLayout>
 
-    <LinearLayout
+
+    <!--<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_above="@+id/btnoption"
@@ -79,7 +78,7 @@
             android:id="@+id/tvgender"
             />
 
-    </LinearLayout>
+    </LinearLayout>-->
 
 
 </RelativeLayout>
