@@ -17,6 +17,42 @@
         android:layout_alignParentTop="true"
         android:src="@android:drawable/btn_star_big_on" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnContaitner"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvname"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:text="Employe Name" />
+
+        <TextView
+            android:id="@+id/tvjobs"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:text="Employe Jobs" />
+
+        <TextView
+            android:id="@+id/tvage"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:text="Employe Age" />
+
+        <TextView
+            android:id="@+id/tvgender"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:text="Employe Gender" />
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/btnContaitner"

@@ -74,7 +74,7 @@ public class ImageAdapter extends BaseAdapter {
         if (view == null) {
             LayoutInflater inflater = (LayoutInflater) mContext
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(row, null);
+            view = inflater.inflate(R.layout.grid2, null);
             holder = new ViewHolder();
             view.setTag(holder);
         } else {
