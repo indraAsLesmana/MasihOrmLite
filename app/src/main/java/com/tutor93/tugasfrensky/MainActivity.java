@@ -59,17 +59,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setDataToAdapter_listview();
         setDataToAdapter_gridview();
 
-        /*//coba gridview
-        GridView gridview = (GridView) findViewById(R.id.halamandepan_gridview);  
-        gridview.setAdapter(new ImageAdapter(this));
-
-        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v,
-                                    int position, long id) {
-                Toast.makeText(MainActivity.this, "" + position,
-                        Toast.LENGTH_SHORT).show();
-            }
-        });*/
     }
 
 
@@ -119,9 +108,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+
             case R.id.action_favorite:
                 Intent intent = new Intent(this, Add_employee.class);
                 startActivity(intent);
+                return true;
+
+            case R.id.action_toActivityApi:
+                Intent intentApiActivity = new Intent(this, LatihanApiMain.class);
+                startActivity(intentApiActivity);
                 return true;
 
             default:

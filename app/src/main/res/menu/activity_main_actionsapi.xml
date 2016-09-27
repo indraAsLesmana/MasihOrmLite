@@ -9,7 +9,7 @@
         app:showAsAction="always" />
 
     <!-- Settings, should always be in the overflow -->
-    <item
+    <!--<item
         android:id="@+id/action_settings"
         android:title="about"
         app:showAsAction="never" />
@@ -17,6 +17,6 @@
     <item
         android:id="@+id/action_toActivityApi"
         android:title="latihan API"
-        app:showAsAction="never" />
+        app:showAsAction="never" />-->
 
 </menu>

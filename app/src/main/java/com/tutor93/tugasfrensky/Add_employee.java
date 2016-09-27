@@ -122,10 +122,19 @@ public class Add_employee extends AppCompatActivity implements DatePickerDialog.
         if (intent.getIntExtra("id", 0) != 0) {
             //load dari employee dari database berdasarkan value intent dgn query ORMlite
             Toast.makeText(this, "masuk query", Toast.LENGTH_SHORT).show();
-
             employeeList = helper.getEmployeeById(intent.getIntExtra("id", 0));
+
+
             mName.setText(employeeList.getName());
-            //mJabatan.set
+            mJabatan.setSelection(spinerCheck(mJabatan, employeeList.getJobs()));
+
+            if (employeeList.is_male() == true) {
+                mAdd_Male.setChecked(true);
+                mAdd_Female.setChecked(false);
+            } else if (employeeList.is_male() == false) {
+                mAdd_Male.setChecked(false);
+                mAdd_Female.setChecked(true);
+            }
             //mMele
             mAdd_JoinDate.setText(employeeList.getJoin());
             mBookmark.setSelected(employeeList.isBookmark());
@@ -134,6 +143,31 @@ public class Add_employee extends AppCompatActivity implements DatePickerDialog.
 
         }
     }
+
+    /*cek spinner by value
+    * */
+    private int spinerCheck(Spinner spinner, String value) {
+        int index = 0;
+
+        for (int i = 0; i < spinner.getCount(); i++) {
+            if (spinner.getItemAtPosition(i).equals(value)) {
+                index = i;
+            }
+        }
+        return index;
+    }
+
+    /*
+    * tring compareValue = "some value";
+    ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.select_state, android.R.layout.simple_spinner_item);
+    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    mSpinner.setAdapter(adapter);
+    if (!compareValue.equals(null)) {
+    int spinnerPosition = adapter.getPosition(compareValue);
+    mSpinner.setSelection(spinnerPosition);
+}
+    *
+    * */
 
 
     private void spinnerData() {
