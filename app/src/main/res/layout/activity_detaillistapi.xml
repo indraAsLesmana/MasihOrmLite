@@ -2,18 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:padding="5dp"
+    >
 
     <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_margin="2dp"
-        android:layout_weight="10">
+        android:layout_weight="15">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/no_item" />
+            android:src="@drawable/no_item"
+            android:id="@+id/cppicture_api"
+            android:scaleType="centerCrop"
+            />
 
         <TextView
             android:id="@+id/cpname_latihanapi"
@@ -30,32 +35,61 @@
         android:layout_height="match_parent"
         android:layout_margin="2dp"
         android:layout_weight="30"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="0.2"
-            android:text="Company :" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="0.2"
-            android:text="Address :" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:text="Company" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="0.2"
-            android:text="Request :" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:text="Address" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="0.5"
-            android:id="@+id/request_latihanapi"
-            android:text="@string/dump_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:text="Request" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/company_latihanapi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/address_latihanapi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/request_latihanapi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -72,14 +106,15 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnlefttop"
+                android:id="@+id/api_btncall"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_weight="1"
-                android:background="@drawable/phone_icon" />
+                android:background="@drawable/phone_icon"
+                />
 
             <Button
-                android:id="@+id/btnrighttop"
+                android:id="@+id/api_btnedit"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
@@ -95,16 +130,16 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnleftbottom"
+                android:id="@+id/api_btnlocation"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_weight="1"
                 android:background="@drawable/map" />
 
             <Button
-                android:id="@+id/btnrightbottom"
+                android:id="@+id/api_btndelete"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_weight="1"
                 android:background="@drawable/medbooks_delete_record_icon" />
 

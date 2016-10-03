@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 /**
@@ -88,25 +90,9 @@ public class EmpAdapter extends ArrayAdapter<EmployeEntity> implements View.OnCl
             holder.gender.setText(obj.is_male() == false ? "Female" : "Male");
             holder.startBookmark.setVisibility(obj.isBookmark() ? View.VISIBLE : View.GONE);
 
-            Bitmap bitmap = new ImageSaver(mContext).
-                    setFileName(obj.getName() + ".png").
-                    setDirectoryName("images").
-                    load();
-
-            if (bitmap != null){
-                holder.profileImage.setImageBitmap(bitmap);
-            }
-
-//            load image coba pake glid masih error " isn't color or bitmap path"
-           /* if(obj.getAvatar()!= null ){
-                Glide.with(mContext).load(new File(obj.getAvatar()))
-                        .placeholder(R.id.imageProfile)
-                        .into(holder.profileImage);
-                Log.d("nullte", " tidak null");
-            }else if (obj.getAvatar() == null){
-                Log.d("nullte", " nilainya null");
-            }*/
-
+            Glide.with(mContext)
+                    .load(obj.getAvatar())
+                    .into(holder.profileImage);
         }
 
         return view;

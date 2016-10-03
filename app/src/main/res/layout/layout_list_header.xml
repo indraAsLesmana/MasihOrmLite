@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     >
-    <!--<ImageView
-        android:id="@+id/layout_list_header_iv_image"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/no_user"
-        />-->
+
 
     <LinearLayout
+        android:id="@+id/header_linierlayaout"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:orientation="horizontal"
-        android:id="@+id/header_linierlayaout"
         >
 
         <RelativeLayout
@@ -35,15 +30,19 @@
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentLeft="true"
-                android:src="@drawable/no_user" />
+                android:src="@drawable/no_user"
+                android:id="@+id/employerpict_api"
+                />
 
             <ImageView
+                android:id="@+id/btn_previusemployee"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:src="@drawable/back_btn_gray" />
 
             <ImageView
+                android:id="@+id/btn_nextemployee"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -54,7 +53,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingLeft="10dp">
 
             <TextView
                 android:id="@+id/tvname"
@@ -86,7 +86,6 @@
 
         </LinearLayout>
 
-
     </LinearLayout>
-    
-    </FrameLayout>
+
+</FrameLayout>

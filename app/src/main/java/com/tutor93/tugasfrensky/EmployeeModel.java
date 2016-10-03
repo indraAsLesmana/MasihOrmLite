@@ -33,7 +33,7 @@ public class EmployeeModel {
         }
     }
 
-    public void insertEmployee(Employee employeeModel){
+    public void insertEmployee(Employee employeeModel) {
         EmployeEntity employe = new EmployeEntity();
         employe.setName(employeeModel.getName());
         employe.setNotes(employeeModel.getNotes());
@@ -49,7 +49,7 @@ public class EmployeeModel {
 
 
     //telah diubah tadinya parameternya butuh Employee class, menjadi EmployeEntity Class
-    public void updateOrder(EmployeEntity employee){
+    public void updateOrder(EmployeEntity employee) {
 
         EmployeEntity employeEntity = new EmployeEntity();
 
@@ -57,7 +57,29 @@ public class EmployeeModel {
 
         employeEntity = getEmployeeById(Id);
 
-        if(employeEntity != null){
+        if (employeEntity != null) {
+            employeEntity.setName(employee.getName());
+            employeEntity.setNotes(employee.getNotes());
+            employeEntity.setAge(employee.getAge());
+            employeEntity.setAvatar(employee.getAvatar());
+            employeEntity.setBookmark(employee.isBookmark());
+            employeEntity.setIs_male(employee.is_male());
+            employeEntity.setJobs(employee.getJobs());
+            employeEntity.setJoin(employee.getJoin());
+            this.upsertToDatabase(employeEntity);
+        }
+
+    }
+
+    public void updateOrder(Employee employee) {
+
+        EmployeEntity employeEntity = new EmployeEntity();
+
+        int Id = employee.getId();
+
+        employeEntity = getEmployeeById(Id);
+
+        if (employeEntity != null) {
             employeEntity.setName(employee.getName());
             employeEntity.setNotes(employee.getNotes());
             employeEntity.setAge(employee.getAge());
@@ -104,7 +126,7 @@ public class EmployeeModel {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        if(data.size()>0){
+        if (data.size() > 0) {
             return data.get(0);
         }
         return null;
