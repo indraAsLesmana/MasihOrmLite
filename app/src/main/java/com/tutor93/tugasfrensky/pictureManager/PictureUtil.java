@@ -1,4 +1,4 @@
-package com.tutor93.tugasfrensky.cameraManager;
+package com.tutor93.tugasfrensky.pictureManager;
 
 import android.content.Context;
 import android.database.Cursor;

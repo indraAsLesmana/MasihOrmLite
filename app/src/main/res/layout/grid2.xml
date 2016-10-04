@@ -1,84 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="180dp"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="6dp"
+    app:cardElevation="12dp">
+    >
 
-    <ImageView
-        android:id="@+id/imageProfile"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:src="@android:drawable/sym_def_app_icon"
-        android:scaleType="centerCrop"
-        />
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/startBookmarkIcon"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:src="@android:drawable/btn_star_big_on" />
+        <ImageView
+            android:id="@+id/imageProfile"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:scaleType="centerCrop"
+            android:src="@android:drawable/sym_def_app_icon" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btnContaitner"
-        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/startBookmarkIcon"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:src="@android:drawable/btn_star_big_on" />
 
-        <TextView
-            android:id="@+id/tvname"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="0.5"
-            android:text="Employe Name" />
-
-        <TextView
-            android:id="@+id/tvjobs"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="0.5"
-            android:text="Employe Jobs" />
-
-        <TextView
-            android:id="@+id/tvage"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="0.5"
-            android:text="Employe Age" />
-
-        <TextView
-            android:id="@+id/tvgender"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="0.5"
-            android:text="Employe Gender" />
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:id="@+id/btnContaitner"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@id/imageProfile"
-        android:orientation="horizontal">
-
-
-        <Button
-            android:id="@+id/btnBookmark"
-            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="Bo"
-            />
+            android:layout_above="@+id/btnContaitner"
+            android:orientation="vertical"
+            android:padding="10dp">
 
-        <Button
-            android:id="@+id/btnEdit"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="Ed" />
+            <TextView
+                android:id="@+id/tvname"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:text="Employe Name"
+                android:textColor="@android:color/white" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/tvjobs"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:text="Employe Jobs"
+                android:textColor="@android:color/white" />
 
-</RelativeLayout>
+            <TextView
+                android:id="@+id/tvage"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:text="Employe Age"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/tvgender"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:text="Employe Gender"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnContaitner"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/imageProfile"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnBookmark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:background="@android:color/white"
+                android:text="Bo"
+                android:textColor="@android:color/holo_orange_dark" />
+
+            <Button
+                android:id="@+id/btnEdit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:background="@android:color/white"
+                android:text="Ed"
+                android:textColor="@android:color/holo_orange_dark" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

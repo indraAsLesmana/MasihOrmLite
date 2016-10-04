@@ -1,15 +1,12 @@
 package com.tutor93.tugasfrensky;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.ContextWrapper;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -21,19 +18,15 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
-import com.tutor93.tugasfrensky.cameraManager.PictureUtil;
+import com.tutor93.tugasfrensky.pictureManager.PictureUtil;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -57,7 +50,6 @@ public class Add_employee extends AppCompatActivity implements
     private DatabaseHelper databaseHelper = null;
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
-
 
     /*define all object add_employe class*/
     private EditText mName;
@@ -141,6 +133,8 @@ public class Add_employee extends AppCompatActivity implements
             @Override
             public void onClick(View view) {
                 selectImage("Choose from Gallery");
+                /*dialogCustom();*/
+
             }
         });
 
@@ -162,7 +156,6 @@ public class Add_employee extends AppCompatActivity implements
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
         /*
          * You'll need this in your class to release the helper when done.
 		 */
@@ -172,31 +165,6 @@ public class Add_employee extends AppCompatActivity implements
         }
     }
 
-    /*ambil camera START
-        source developer.android
-        * fungsi: ambil camera dari
-        *
-        * inget inget... bisi butuh
-        * *//*
-    private void dispatchTakePictureIntent() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-        }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            Bundle extras = data.getExtras();
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
-            mProfile_pict.setImageBitmap(imageBitmap);
-
-            //temp buat bitmap
-            imageCache = imageBitmap;
-        }
-    }
-    *//*ambil camera END*/
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -217,6 +185,7 @@ public class Add_employee extends AppCompatActivity implements
                         //ini untuk dapetin filepaths
                         Uri mUri = PictureUtil.getImageRotated(this, photoSelected, photoFilePaths);
                         filePathDatas = PictureUtil.getRealPathFromURI(this, mUri);
+
                     }
                 }
                 break;
@@ -235,6 +204,15 @@ public class Add_employee extends AppCompatActivity implements
         } else if (view == mAdd_Male) {
             mAdd_Female.setChecked(false);
         }
+    }
+
+    private void dialogCustom (){
+        // Create custom dialog object
+        final Dialog dialog = new Dialog(Add_employee.this);
+        // Include dialog.xml file
+        dialog.setContentView(R.layout.dialog_attach);
+        dialog.show();
+
     }
 
     private void selectImage(String method) {
@@ -273,19 +251,14 @@ public class Add_employee extends AppCompatActivity implements
             photoFilePaths = "";
             startActivityForResult(Intent.createChooser(intent, "Select File"), ACTIVITY_PHOTO_RESULT);
 
-            Glide.with(this)
-                    .load(getIntent().getStringExtra("Select File"))
-                    .into(mProfile_pict);
         }
     }
 
     private void loadPhoto() {
-
         Glide.with(this)
                 .load(photoFilePaths)
                 .into(mProfile_pict);
     }
-
     private boolean checkIntent() {
         Intent intent = getIntent();
 

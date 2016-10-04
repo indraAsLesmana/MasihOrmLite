@@ -1,4 +1,4 @@
-package com.tutor93.tugasfrensky.cameraManager;
+package com.tutor93.tugasfrensky.pictureManager;
 
 import android.app.Activity;
 import android.content.Intent;

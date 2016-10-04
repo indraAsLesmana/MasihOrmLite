@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,26 +11,25 @@
         android:id="@+id/MainFrame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/linierbtn"
+        android:layout_above="@+id/bottomBar">
+       <!-- android:paddingBottom="@dimen/activity_horizontal_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingBottom="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_horizontal_margin"
-        >
+        android:paddingTop="@dimen/activity_horizontal_margin"-->
+
+
 
         <ListView
             android:id="@+id/halamandepan_listview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
             />
 
         <LinearLayout
             android:id="@+id/gridView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
             <GridView
                 android:id="@+id/halamandepan_gridview"
@@ -45,30 +45,11 @@
 
     </FrameLayout>
 
-    <LinearLayout
-        android:id="@+id/linierbtn"
+    <com.roughike.bottombar.BottomBar
+        android:id="@+id/bottomBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
-        android:background="@android:color/white">
-        
-        <ImageButton
-            android:id="@+id/btnList"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:background="@android:color/white"
-            android:src="@drawable/ic_action_list" />
-
-        <ImageButton
-            android:id="@+id/gridBtn"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:background="@android:color/white"
-            android:src="@drawable/ic_action_grid" />
-
-    </LinearLayout>
-
+        app:bb_tabXmlResource="@xml/bottombar_tabs_three" />
 
 </RelativeLayout>

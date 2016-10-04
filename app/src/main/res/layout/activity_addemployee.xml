@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.widget.ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -19,18 +19,19 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.2"
-                android:text="Name" />
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <android.support.v7.widget.AppCompatEditText
-                android:id="@+id/add_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.7"
-                android:hint="Plese input your name" />
+                <EditText
+                    android:id="@+id/add_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Input your name" />
+
+            </android.support.design.widget.TextInputLayout>
+
         </LinearLayout>
 
         <!--Jabatan-->
@@ -108,17 +109,17 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.2"
-                android:text="Age" />
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/add_age"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.7" />
+                <EditText
+                    android:id="@+id/add_age"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Age" />
+
+            </android.support.design.widget.TextInputLayout>
         </LinearLayout>
         <!--Join date-->
         <LinearLayout
@@ -126,19 +127,19 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.2"
-                android:text="Join date" />
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <android.support.v7.widget.AppCompatEditText
-                android:id="@+id/add_joindate"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.7"
-                android:clickable="true"
-                android:editable="false" />
+                <EditText
+                    android:id="@+id/add_joindate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:hint="Join date" />
+
+            </android.support.design.widget.TextInputLayout>
         </LinearLayout>
         <!--Notes-->
         <LinearLayout
@@ -146,17 +147,17 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.2"
-                android:text="Notes" />
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <android.support.v7.widget.AppCompatEditText
-                android:id="@+id/add_note"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.7" />
+                <EditText
+                    android:id="@+id/add_note"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Notes" />
+
+            </android.support.design.widget.TextInputLayout>
         </LinearLayout>
 
 
@@ -174,28 +175,38 @@
             android:layout_gravity="center"
             android:orientation="vertical">
 
-            <Button
+
+            <android.support.v7.widget.AppCompatButton
                 android:id="@+id/add_picture"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:text="Take pictute" />
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:background="@android:color/transparent"
+                android:text="Take picture"
+                android:textColor="@android:color/holo_orange_dark" />
 
-            <Button
+            <android.support.v7.widget.AppCompatButton
                 android:id="@+id/add_fromgallery"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:text="Add from gallery"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:background="@android:color/transparent"
                 android:singleLine="true"
-                />
+                android:text="Add from gallery"
+                android:textColor="@android:color/holo_orange_dark" />
 
-            <Button
+            <android.support.v7.widget.AppCompatButton
                 android:id="@+id/btn_saveemployee"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:text="Save Employee" />
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:background="@android:color/transparent"
+                android:text="Save"
+                android:textColor="@android:color/holo_orange_dark" />
+
 
         </LinearLayout>
 
     </LinearLayout>
 
-</ScrollView>
+</android.widget.ScrollView>

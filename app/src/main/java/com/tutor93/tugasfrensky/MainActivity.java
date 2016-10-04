@@ -1,6 +1,7 @@
 package com.tutor93.tugasfrensky;
 
 import android.content.Intent;
+import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +16,9 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.OnTabSelectListener;
 
 import java.util.List;
 
@@ -46,18 +50,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         gridViewFrame = (LinearLayout) findViewById(R.id.gridView);
 
 
-        btnGrid = (ImageButton) findViewById(R.id.gridBtn);
-        btnList = (ImageButton) findViewById(R.id.btnList);
-
         //solving masalah null pake ini.
         this.helper = new EmployeeModel(this);
         isFirst =true;
 
-        btnGrid.setOnClickListener(this);
-        btnList.setOnClickListener(this);
+
 
         setDataToAdapter_listview();
         setDataToAdapter_gridview();
+
+        BottomBar bottomBar = (BottomBar) findViewById(R.id.bottomBar);
+        bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
+            @Override
+            public void onTabSelected(@IdRes int tabId) {
+                if (tabId == R.id.tab_grid) {
+                    listView.setVisibility(View.GONE);
+                    gridViewFrame.setVisibility(View.VISIBLE);
+                    //load data ulang
+                    setDataToAdapter_gridview();
+                }else{
+                    gridViewFrame.setVisibility(View.GONE);
+                    listView.setVisibility(View.VISIBLE);
+                    //load data ulang
+                    setDataToAdapter_listview();
+                }
+            }
+        });
     }
 
 
@@ -88,15 +106,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
 
-            case R.id.action_favorite:
-                Intent intent = new Intent(this, Add_employee.class);
-                startActivity(intent);
-                return true;
-
             case R.id.action_toActivityApi:
                 Intent intentApiActivity = new Intent(this, LatihanApiMain.class);
                 startActivity(intentApiActivity);
                 return true;
+
+            case R.id.action_toFragment:
+                Intent intent = new Intent(this, Add_employee.class);
+                startActivity(intent);
+                return true;
+
 
             default:
                 return super.onOptionsItemSelected(item);

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -64,6 +65,7 @@ public class EmpAdapter extends ArrayAdapter<EmployeEntity> implements View.OnCl
         holder.startBookmark = (ImageView) view.findViewById(R.id.startBookmarkIcon);
         holder.profileImage = (ImageView) view.findViewById(R.id.imageProfile);
 
+
         /*button edit*/
         holder.btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +84,7 @@ public class EmpAdapter extends ArrayAdapter<EmployeEntity> implements View.OnCl
                 notifyDataSetChanged();
             }
         });
+
 
         if (null != holder.name && null != obj && obj.getName().length() != 0) {
             holder.name.setText(obj.getName());

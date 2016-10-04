@@ -27,6 +27,7 @@
         <activity android:name=".Add_employee"/>
         <activity android:name=".LatihanApiMain"/>
         <activity android:name=".ApiEmployeeForm"/>
+        <activity android:name=".MainFragment"/>
     </application>
 
 </manifest>
