@@ -17,6 +17,7 @@ import android.widget.ListView;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 import com.tutor93.tugasfrensky.R;
+import com.tutor93.tugasfrensky.fragment.LatihanApiMain_fragment;
 
 import java.util.List;
 
@@ -105,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (item.getItemId()) {
 
             case R.id.action_toActivityApi:
-                Intent intentApiActivity = new Intent(this, LatihanApiMain.class);
+                Intent intentApiActivity = new Intent(this, LatihanApiMain_fragment.class);
                 startActivity(intentApiActivity);
                 return true;
 

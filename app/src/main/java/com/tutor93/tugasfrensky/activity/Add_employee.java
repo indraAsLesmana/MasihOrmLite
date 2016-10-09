@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.tutor93.tugasfrensky.R;
+import com.tutor93.tugasfrensky.fragment.ViewGridFragment;
 import com.tutor93.tugasfrensky.pictureManager.PictureUtil;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
@@ -33,7 +35,7 @@ import java.util.Calendar;
 import java.util.List;
 
 
-public class Add_employee extends AppCompatActivity implements
+public class Add_employee extends BaseActivityWithActionBar implements
         DatePickerDialog.OnDateSetListener, View.OnClickListener {
 
     //camera Management
@@ -75,11 +77,16 @@ public class Add_employee extends AppCompatActivity implements
     private int empoyeeId;
 
     private String lastPhotoPath;
+    private LinearLayout backPress;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_addemployee);
+    }
+
+
+    @Override
+    public void initView() {
 
         takePicture = (Button) findViewById(R.id.add_picture);
         chooseFromGallery = (Button) findViewById(R.id.add_fromgallery);
@@ -99,14 +106,8 @@ public class Add_employee extends AppCompatActivity implements
         mNotes = (EditText) findViewById(R.id.add_note);
         /*button*/
         mAdd_save = (Button) findViewById(R.id.btn_saveemployee);
+        backPress = (LinearLayout) findViewById(R.id.imbn_back);
         /*define, locate & set END*/
-
-        /*difine listener*/
-       /* mAdd_camera.setOnClickListener(this);*/
-        mAdd_save.setOnClickListener(this);
-
-        mAdd_Female.setOnClickListener(this);
-        mAdd_Male.setOnClickListener(this);
 
         //solving masalah null pake ini.
         this.helper = new EmployeeModel(this);
@@ -114,6 +115,16 @@ public class Add_employee extends AppCompatActivity implements
 
         spinnerData();
         checkIntent();
+
+    }
+
+    @Override
+    public void setUICallbacks() {
+         /*difine listener*/
+       /* mAdd_camera.setOnClickListener(this);*/
+        mAdd_save.setOnClickListener(this);
+        mAdd_Female.setOnClickListener(this);
+        mAdd_Male.setOnClickListener(this);
 
         mAdd_JoinDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,7 +145,6 @@ public class Add_employee extends AppCompatActivity implements
             public void onClick(View view) {
                 selectImage("Choose from Gallery");
                 /*dialogCustom();*/
-
             }
         });
 
@@ -144,8 +154,25 @@ public class Add_employee extends AppCompatActivity implements
                 selectImage("Take Photo");
             }
         });
+        backPress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Add_employee.super.onBackPressed();
+            }
+        });
+
     }
 
+    @Override
+    public int getLayout() {
+        return R.layout.activity_addemployee;
+    }
+
+    @Override
+    public void updateUI() {
+        this.setActionBarTitle(getResources().getString(R.string.add_employee));
+        this.setLeftIcon(R.drawable.ic_back);
+    }
 
     @Override
     public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
@@ -206,6 +233,7 @@ public class Add_employee extends AppCompatActivity implements
         }
     }
 
+
     private void dialogCustom (){
         // Create custom dialog object
         final Dialog dialog = new Dialog(Add_employee.this);
@@ -263,7 +291,7 @@ public class Add_employee extends AppCompatActivity implements
 
         if (intent.getIntExtra("id", 0) != 0) {
             //load dari employee dari database berdasarkan value intent dgn query ORMlite
-            Toast.makeText(this, "masuk query", Toast.LENGTH_SHORT).show();
+           /* Toast.makeText(this, "masuk query", Toast.LENGTH_SHORT).show();*/
             employeeList = helper.getEmployeeById(intent.getIntExtra("id", 0));
 
             empoyeeId = intent.getIntExtra("id", 0);
@@ -410,5 +438,6 @@ public class Add_employee extends AppCompatActivity implements
         }
         return databaseHelper;
     }
+
 
 }

@@ -56,15 +56,15 @@ public class Dashboard_fragment extends BaseFragmentWithActionBar implements Vie
         getBaseActivity().setActionbarListener(new OnActionbarListener() {
             @Override
             public void onLeftIconClick() {
-                Toast.makeText(activity, "on left cliked", Toast.LENGTH_SHORT).show();
+
                 menu = getBaseActivity().menu;
                 if (menu != null) {
                     if (menu.isDrawerOpen(GravityCompat.START)) {
                         menu.closeDrawer(Gravity.LEFT);
-                        Toast.makeText(activity, "im close", Toast.LENGTH_SHORT).show();
+
                     } else {
                         menu.openDrawer(Gravity.LEFT);
-                        Toast.makeText(activity, "im open", Toast.LENGTH_SHORT).show();
+
                     }
                 }
 

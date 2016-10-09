@@ -32,8 +32,9 @@ public class BaseLatihanAPI {
                     @Override
                     public Throwable handleError(RetrofitError cause) {
                         if (cause.getKind().equals(RetrofitError.Kind.NETWORK)) {
-//                            errorDescription = getString(R.string.error_no_network);
+                            /*errorDescription = getString(R.string.error_no_network);*/
                             Log.d("Error", "Network Error");
+
                         }
                         return null;
                     }

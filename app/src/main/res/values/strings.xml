@@ -65,18 +65,24 @@
     <string name="age">Age</string>
     <string name="join_date">Join date</string>
     <string name="note">Note</string>
+    <string name="add_employee">Add employee</string>
+    <string name="gender">Gender</string>
+    <string name="latihan_api">Latihan API</string>
+    <string name="add_new">Add new</string>
 
 
     <string-array name="main_menu">
         <item>View Dashboard </item>
         <item>View as list</item>
         <item>View as grid</item>
+        <item>Latihan API</item>
     </string-array>
 
     <string-array name="menu_images">
         <item>@drawable/ic_dashboard</item>
         <item>@drawable/ic_view_list</item>
         <item>@drawable/ic_view_grid</item>
+        <item>@drawable/ico_pdf</item>
     </string-array>
 
 

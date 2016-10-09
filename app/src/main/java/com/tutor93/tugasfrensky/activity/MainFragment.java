@@ -11,12 +11,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.tutor93.tugasfrensky.R;
 import com.tutor93.tugasfrensky.adapter.MainMenuAdapter;
 import com.tutor93.tugasfrensky.fragment.Dashboard_fragment;
+import com.tutor93.tugasfrensky.fragment.LatihanApiMain_fragment;
 import com.tutor93.tugasfrensky.fragment.ViewGridFragment;
 import com.tutor93.tugasfrensky.fragment.ViewListFragment;
 import com.tutor93.tugasfrensky.model.MainMenuModel;
@@ -43,9 +43,8 @@ public class MainFragment extends BaseActivityWithActionBar implements AdapterVi
     private Bundle bundles;
     private ViewGridFragment viewAsGridFragment;
     private ViewListFragment viewAsListFragment;
-    private Dashboard_fragment dashboard_menu;
+    private LatihanApiMain_fragment latihanApiMainFragment;
     private Dashboard_fragment dashboard_mainmenu;
-    private Dashboard_fragment dashboard;
     private int currentSelectedTab;
     final static String CURRENT_INDEX = "CURRENT_INDEX";
 
@@ -53,6 +52,7 @@ public class MainFragment extends BaseActivityWithActionBar implements AdapterVi
     final public static String VIEW_GRID = "VIEW GRID";
     final public static String VIEW_LIST = "VIEW LIST";
     final public static String DASHBOARD = "DASHBOARD";
+    final public static String LATIHAN_API = "LATIHAN API";
 
     final public static String WELCOME = "Welcome";
 
@@ -108,10 +108,12 @@ public class MainFragment extends BaseActivityWithActionBar implements AdapterVi
             viewAsGridFragment = new ViewGridFragment();
             viewAsListFragment = new ViewListFragment();
             dashboard_mainmenu = new Dashboard_fragment();
+            latihanApiMainFragment = new LatihanApiMain_fragment();
 
             replaceFragmentwithTag(R.id.dashboard_viewaslist, viewAsListFragment, false, VIEW_LIST);
             replaceFragmentwithTag(R.id.dashboard_viewasgrid, viewAsGridFragment, false, VIEW_GRID);
             replaceFragmentwithTag(R.id.dashboard_mainmenu_view, dashboard_mainmenu, false, DASHBOARD);
+            replaceFragmentwithTag(R.id.dashboard_latiahnapi, latihanApiMainFragment, false, LATIHAN_API);
 
         } else {
             currentSelectedTab = bundles.getInt(CURRENT_INDEX, 0);
@@ -128,6 +130,10 @@ public class MainFragment extends BaseActivityWithActionBar implements AdapterVi
             Fragment fragment3 = getSupportFragmentManager().findFragmentByTag(DASHBOARD);
             if (fragment3 instanceof Dashboard_fragment) {
                 dashboard_mainmenu = (Dashboard_fragment) fragment3;
+            }
+            Fragment fragment4 = getSupportFragmentManager().findFragmentByTag(LATIHAN_API);
+            if (fragment4 instanceof LatihanApiMain_fragment) {
+                latihanApiMainFragment = (LatihanApiMain_fragment) fragment4;
             }
 
         }
@@ -214,7 +220,7 @@ public class MainFragment extends BaseActivityWithActionBar implements AdapterVi
 
         }*/
 
-        switch (i){
+        switch (i) {
             case 0:
                 /*viewAsListFragment.refreshNavBar();*/
                 return;
@@ -224,11 +230,14 @@ public class MainFragment extends BaseActivityWithActionBar implements AdapterVi
             case 2:
                 viewAsGridFragment.refreshNavBar();
                 return;
+            case 3:
+                latihanApiMainFragment.refreshNavBar();
+                return;
 
         }
     }
 
-    public DrawerLayout getMenu(){
+    public DrawerLayout getMenu() {
         return menu;
     }
 

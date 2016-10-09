@@ -36,7 +36,7 @@ public abstract class BaseFragment extends Fragment implements FragmentInterface
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(getFragmentLayout(), container, false);
         initView(view);
-        /*if(view.findViewById(R.id.imbn_back)!=null){
+        if(view.findViewById(R.id.imbn_back)!=null){
             backButton = (LinearLayout) view.findViewById(R.id.imbn_back);
             backButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -44,7 +44,7 @@ public abstract class BaseFragment extends Fragment implements FragmentInterface
                     getActivity().onBackPressed();
                 }
             });
-        }*/
+        }
         return view;
     }
 

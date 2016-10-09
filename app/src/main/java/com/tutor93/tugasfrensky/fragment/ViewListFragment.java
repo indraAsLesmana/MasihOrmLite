@@ -54,29 +54,6 @@ public class ViewListFragment extends BaseFragmentWithActionBar {
     @Override
     public void setUICallbacks() {
 
-        getBaseActivity().setActionbarListener(new OnActionbarListener() {
-            @Override
-            public void onLeftIconClick() {
-                Toast.makeText(context, "1", Toast.LENGTH_SHORT).show();
-
-            }
-
-            @Override
-            public void onRightIconClick() {
-                Toast.makeText(context, "2", Toast.LENGTH_SHORT).show();
-
-            }
-
-            @Override
-            public void onRight2IconClick() {
-                Toast.makeText(context, "im in touch", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onSelectIconClick() {
-                Toast.makeText(context, "3", Toast.LENGTH_SHORT).show();
-            }
-        });
 
     }
 
@@ -84,7 +61,8 @@ public class ViewListFragment extends BaseFragmentWithActionBar {
     public void updateUI() {
         getBaseActivity().setLeftIcon(R.drawable.more_icon);
         getBaseActivity().setRightIcon2(R.drawable.add_purple_icon);
-        //masih error load data.
+
+        /*load data from DB*/
         setDataToAdapter_listview();
     }
 
@@ -102,7 +80,6 @@ public class ViewListFragment extends BaseFragmentWithActionBar {
         getBaseActivity().setActionBarTitle(getPageTitle());
         updateUI();
         /*setUICallbacks();*/
-
     }
 
 

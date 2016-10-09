@@ -24,6 +24,7 @@
     <dimen name="medbooks_48dp">48dp</dimen>
     <dimen name="font_16sp">16sp</dimen>
     <dimen name="medbooks_90dp">90dp</dimen>
+    <dimen name="medbooks_1dp">1dp</dimen>
 
 
 </resources>

@@ -23,7 +23,7 @@
         <activity android:name=".activity.Add_employee">
 
         </activity>
-        <activity android:name=".activity.LatihanApiMain" />
+        <activity android:name=".fragment.LatihanApiMain_fragment" />
         <activity android:name=".activity.ApiEmployeeForm" />
         <activity android:name=".activity.MainMenu">
 

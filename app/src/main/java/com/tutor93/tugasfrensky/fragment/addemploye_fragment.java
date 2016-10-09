@@ -36,7 +36,7 @@ public class addemploye_fragment extends BaseFragmentWithActionBar implements
 
     @Override
     public String getPageTitle() {
-        return null;
+        return getResources().getString(R.string.add_employee);
     }
 
     @Override

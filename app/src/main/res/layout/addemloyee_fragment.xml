@@ -49,6 +49,33 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.2"
+                android:text="@string/gender" />
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/add_male"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="Male" />
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/add_female"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Female" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.tutor93.tugasfrensky.view.TextViewRegular
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
                 android:text="Bookmark" />
 
             <android.support.v7.widget.AppCompatCheckBox

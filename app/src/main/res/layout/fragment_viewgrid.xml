@@ -5,13 +5,14 @@
     android:orientation="vertical">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/swipe_target"
+        android:id="@+id/employee_recycleview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingRight="8dp"
-        android:paddingLeft="8dp"
+        android:divider="@null"
+        android:dividerHeight="0dp"
         android:scrollbars="vertical"
-        android:fadeScrollbars="false"
-        android:scrollbarStyle="outsideOverlay"/>
+        android:fadeScrollbars="false">
+
+    </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>

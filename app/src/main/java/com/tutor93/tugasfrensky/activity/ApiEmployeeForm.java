@@ -16,6 +16,7 @@ import com.tutor93.tugasfrensky.latihanapi.DealAPIRequest;
 import com.tutor93.tugasfrensky.latihanapi.DealingAPIResponse;
 import com.tutor93.tugasfrensky.latihanapi.LatihanAPI;
 import com.tutor93.tugasfrensky.latihanapi.LatihanAPIResponse;
+import com.tutor93.tugasfrensky.view.ButtonRegular;
 
 import retrofit.Callback;
 import retrofit.ErrorHandler;
@@ -30,26 +31,19 @@ import retrofit.client.Response;
  * Created by indraaguslesmana on 9/29/16.
  */
 
-public class ApiEmployeeForm extends AppCompatActivity implements View.OnClickListener {
+public class ApiEmployeeForm extends BaseActivityWithActionBar implements View.OnClickListener {
 
     private EditText iduser, companyname, address, request, contact_name, contact_number;
     private LatihanAPI sAPIservice;
     private DealingAPIResponse dealingAPIResponse;
     private Menu menu;
     private boolean changeTitle = true;
+    private ButtonRegular save_api;
+    private ButtonRegular add_new;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_apieditemployee);
-
-        iduser = (EditText) findViewById(R.id.iduser);
-        companyname = (EditText) findViewById(R.id.company_txlatihanapi);
-        address = (EditText) findViewById(R.id.address_txlatihanapi);
-        request = (EditText) findViewById(R.id.request_txlatihanapi);
-        contact_name = (EditText) findViewById(R.id.contactname_txlatihanapi);
-        contact_number = (EditText) findViewById(R.id.contactnumber_txlatihanapi);
-
 
         sAPIservice = (new RestAdapter.Builder()
                 .setEndpoint("http://private-13a03-latihanapi.apiary-mock.com")
@@ -80,14 +74,14 @@ public class ApiEmployeeForm extends AppCompatActivity implements View.OnClickLi
 
     }
 
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.activity_apiedit, menu);
         return super.onCreateOptionsMenu(menu);
-    }
+    }*/
 
-    @Override
+    /*@Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
 
@@ -101,7 +95,7 @@ public class ApiEmployeeForm extends AppCompatActivity implements View.OnClickLi
 
         }
 
-    }
+    }*/
 
 
     @Override
@@ -109,14 +103,47 @@ public class ApiEmployeeForm extends AppCompatActivity implements View.OnClickLi
 
     }
 
-    private void updateMenuTitles() {
-        MenuItem menuName = menu.findItem(R.id.action_save_api);
-        if (changeTitle) {
-            menuName.setTitle("ADD");
-        } else {
-            menuName.setTitle("SAVE");
-        }
+
+    @Override
+    public void initView() {
+        iduser = (EditText) findViewById(R.id.iduser);
+        companyname = (EditText) findViewById(R.id.company_txlatihanapi);
+        address = (EditText) findViewById(R.id.address_txlatihanapi);
+        request = (EditText) findViewById(R.id.request_txlatihanapi);
+        contact_name = (EditText) findViewById(R.id.contactname_txlatihanapi);
+        contact_number = (EditText) findViewById(R.id.contactnumber_txlatihanapi);
+        save_api = (ButtonRegular) findViewById(R.id.save_api);
+        add_new = (ButtonRegular) findViewById(R.id.add_new_api);
     }
+
+    @Override
+    public void setUICallbacks() {
+        save_api.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editEmployee();
+            }
+        });
+
+        add_new.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addEmployee();
+            }
+        });
+
+    }
+
+    @Override
+    public int getLayout() {
+        return R.layout.activity_apieditemployee;
+    }
+
+    @Override
+    public void updateUI() {
+        this.setActionBarTitle(getResources().getString(R.string.latihan_api));
+    }
+
 
     private void checkIntent() {
 
@@ -189,4 +216,13 @@ public class ApiEmployeeForm extends AppCompatActivity implements View.OnClickLi
             }
         });
     }
+
+    /*private void updateMenuTitles() {
+        MenuItem menuName = menu.findItem(R.id.action_save_api);
+        if (changeTitle) {
+            menuName.setTitle("ADD");
+        } else {
+            menuName.setTitle("SAVE");
+        }
+    }*/
 }
