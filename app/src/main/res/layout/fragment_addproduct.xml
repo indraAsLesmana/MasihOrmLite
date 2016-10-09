@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/medbooks_10dp">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.tutor93.tugasfrensky.view.EditTextLight
+                android:id="@+id/product_name"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/medbooks_48dp"
+                android:background="@drawable/login_border_background"
+                android:hint="@string/product_name"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName"
+                android:nextFocusDown="@+id/boarding_input_lastname"
+                android:textSize="@dimen/font_16sp" />
+
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.tutor93.tugasfrensky.view.EditTextLight
+                android:id="@+id/company_name"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/medbooks_48dp"
+                android:background="@drawable/login_border_background"
+                android:hint="@string/company_name"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName"
+                android:nextFocusDown="@+id/boarding_input_lastname"
+                android:textSize="@dimen/font_16sp" />
+
+
+        </android.support.design.widget.TextInputLayout>
+
+        <com.tutor93.tugasfrensky.view.TextViewRegular
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/medbooks_48dp"
+            android:layout_marginTop="@dimen/medbooks_20dp"
+            android:text="@string/sales" />
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/price_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/medbooks_30dp" />
+
+
+        <com.tutor93.tugasfrensky.view.TextViewRegular
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/medbooks_48dp"
+            android:text="@string/prince" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bb_bottom_bar_top_shadow"
+            android:orientation="horizontal">
+
+            <NumberPicker
+                android:id="@+id/sales_number"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/medbooks_60dp">
+            </NumberPicker>
+
+            <com.tutor93.tugasfrensky.view.TextViewRegular
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/medbooks_60dp"
+                android:padding="@dimen/medbooks_5dp"
+                android:text="@string/dollar"
+                android:gravity="center"
+                />
+        </LinearLayout>
+
+        <com.tutor93.tugasfrensky.view.TextViewRegular
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medbooks_10dp"
+            android:text="@string/chacrahteristic" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/burnable_chk"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/Burnable"
+                />
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/breakable_chk"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/Breakable" />
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/toxic_chk"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/toxic" />
+
+
+        </LinearLayout>
+
+        <!-- <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+
+             >-->
+
+        <ImageView
+            android:id="@+id/picture_product"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/medbooks_90dp"
+            android:layout_above="@+id/add_picture_product"
+            android:src="@drawable/no_image_available"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/medbooks_10dp"
+            />
+
+        <com.tutor93.tugasfrensky.view.ButtonRegular
+            android:id="@+id/add_p_product_camera"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_above="@+id/save_product"
+            android:layout_gravity="center|bottom"
+            android:layout_marginLeft="@dimen/medbooks_30dp"
+            android:layout_marginRight="@dimen/medbooks_30dp"
+            android:layout_marginTop="@dimen/medbooks_25dp"
+            android:background="@drawable/selector_btn_purple_rounded"
+            android:gravity="center"
+            android:paddingBottom="@dimen/medbooks_10dp"
+            android:paddingTop="@dimen/medbooks_10dp"
+            android:text="@string/add_picture_from_camera"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_14sp" />
+
+        <com.tutor93.tugasfrensky.view.ButtonRegular
+            android:id="@+id/add_p_product_fromgallery"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_above="@+id/save_product"
+            android:layout_gravity="center|bottom"
+            android:layout_marginLeft="@dimen/medbooks_30dp"
+            android:layout_marginRight="@dimen/medbooks_30dp"
+            android:layout_marginTop="@dimen/medbooks_25dp"
+            android:background="@drawable/selector_btn_purple_rounded"
+            android:gravity="center"
+            android:paddingBottom="@dimen/medbooks_10dp"
+            android:paddingTop="@dimen/medbooks_10dp"
+            android:text="@string/add_picture_from_gallery"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_14sp" />
+
+        <com.tutor93.tugasfrensky.view.ButtonRegular
+            android:id="@+id/save_product"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center|bottom"
+            android:layout_marginLeft="@dimen/medbooks_30dp"
+            android:layout_marginRight="@dimen/medbooks_30dp"
+            android:layout_marginTop="@dimen/medbooks_25dp"
+            android:background="@drawable/selector_btn_green_rounded"
+            android:gravity="center"
+            android:paddingBottom="@dimen/medbooks_10dp"
+            android:paddingTop="@dimen/medbooks_10dp"
+            android:text="@string/save"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_14sp" />
+
+        <!--</RelativeLayout>-->
+
+
+    </LinearLayout>
+</ScrollView>

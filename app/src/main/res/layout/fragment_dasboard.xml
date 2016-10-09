@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.tutor93.tugasfrensky.view.ButtonRegular
+        android:id="@+id/to_employeview"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="@dimen/medbooks_30dp"
+        android:layout_marginRight="@dimen/medbooks_30dp"
+        android:layout_marginTop="@dimen/medbooks_25dp"
+        android:background="@drawable/selector_btn_purple_rounded"
+        android:gravity="center"
+        android:paddingBottom="@dimen/medbooks_10dp"
+        android:paddingTop="@dimen/medbooks_10dp"
+        android:text="@string/to_employee"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_14sp" />
+
+    <com.tutor93.tugasfrensky.view.ButtonRegular
+        android:id="@+id/to_productview"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="@dimen/medbooks_30dp"
+        android:layout_marginRight="@dimen/medbooks_30dp"
+        android:layout_marginTop="@dimen/medbooks_25dp"
+        android:background="@drawable/selector_btn_purple_rounded"
+        android:gravity="center"
+        android:paddingBottom="@dimen/medbooks_10dp"
+        android:paddingTop="@dimen/medbooks_10dp"
+        android:text="@string/to_product"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_14sp" />
+
+    <com.tutor93.tugasfrensky.view.ButtonRegular
+        android:id="@+id/to_emloyee_sales_information"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="@dimen/medbooks_30dp"
+        android:layout_marginRight="@dimen/medbooks_30dp"
+        android:layout_marginTop="@dimen/medbooks_25dp"
+        android:background="@drawable/selector_btn_purple_rounded"
+        android:gravity="center"
+        android:paddingBottom="@dimen/medbooks_10dp"
+        android:paddingTop="@dimen/medbooks_10dp"
+        android:text="@string/to_sales_information"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_14sp" />
+
+    <com.tutor93.tugasfrensky.view.ButtonRegular
+        android:id="@+id/to_employee_project_information"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="@dimen/medbooks_30dp"
+        android:layout_marginRight="@dimen/medbooks_30dp"
+        android:layout_marginTop="@dimen/medbooks_25dp"
+        android:background="@drawable/selector_btn_purple_rounded"
+        android:gravity="center"
+        android:paddingBottom="@dimen/medbooks_10dp"
+        android:paddingTop="@dimen/medbooks_10dp"
+        android:text="@string/to_employee_project_information"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_14sp" />
+
+    <com.tutor93.tugasfrensky.view.ButtonRegular
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="@dimen/medbooks_30dp"
+        android:layout_marginRight="@dimen/medbooks_30dp"
+        android:layout_marginTop="@dimen/medbooks_25dp"
+        android:background="@drawable/selector_btn_green_rounded"
+        android:gravity="center"
+        android:paddingBottom="@dimen/medbooks_10dp"
+        android:paddingTop="@dimen/medbooks_10dp"
+        android:text="@string/logout"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_14sp" />
+
+</LinearLayout>

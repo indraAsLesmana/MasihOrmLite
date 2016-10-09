@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.tutor93.tugasfrensky.ApiEmployeeForm;
+import com.tutor93.tugasfrensky.activity.ApiEmployeeForm;
 import com.tutor93.tugasfrensky.R;
 
 import java.util.List;

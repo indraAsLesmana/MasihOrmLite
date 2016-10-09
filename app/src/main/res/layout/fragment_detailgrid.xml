@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:background="@drawable/border_gray_bottom"
+    android:orientation="horizontal"
+    android:padding="@dimen/medbooks_10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3">
+
+            <ImageView
+                android:id="@+id/imageProfile"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_verified_user"
+
+                android:scaleType="centerCrop"
+                />
+
+            <ImageView
+                android:id="@+id/startBookmarkIcon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:src="@android:drawable/btn_star_big_on" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/detail_emloyee"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.4"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:padding="4dp">
+
+            <com.tutor93.tugasfrensky.view.TextViewRegular
+                android:id="@+id/tvname"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:text="Employe Name"
+                />
+
+            <com.tutor93.tugasfrensky.view.TextViewRegular
+                android:id="@+id/tvjobs"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:text="Employe Jobs" />
+
+            <com.tutor93.tugasfrensky.view.TextViewRegular
+                android:id="@+id/tvage"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:text="Employe Age" />
+
+            <com.tutor93.tugasfrensky.view.TextViewRegular
+                android:id="@+id/tvgender"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:text="Employe Gender" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btnBookmark"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:text="Bookmark"
+                android:textColor="@android:color/holo_orange_dark"
+                android:background="@android:color/white"
+                />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btnEdit"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:text="Edit"
+                android:textColor="@android:color/holo_orange_dark"
+                android:background="@android:color/white"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

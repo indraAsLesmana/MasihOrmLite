@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/menu_row_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp">
+        <ImageView
+            android:id="@+id/menu_row_icons"
+            android:layout_width="@dimen/navigation_icon_size"
+            android:layout_height="@dimen/navigation_icon_size"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:padding="5dp"
+            android:src="@drawable/ic_back" />
+
+        <com.tutor93.tugasfrensky.view.TextViewRegular
+            android:id="@+id/menu_row_names"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="@dimen/navigation_spinner_width"
+            android:ellipsize="marquee"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:textColor="@color/white"
+            android:text="@string/medbooks"
+            android:textSize="18sp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/menu_notif_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="6dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        />
+
+</RelativeLayout>

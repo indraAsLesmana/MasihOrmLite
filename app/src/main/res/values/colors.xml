@@ -6,4 +6,17 @@
     <color name="actionbar_color">#FFFFFF</color>
     <color name="separator_color">#d2d2d2</color>
     <color name="dark_purple">#5b1b73</color>
+    <color name="news_purple">#7E3598</color>
+    <color name="transparent_news_purple">#557E3598</color>
+    <color name="white">#fff</color>
+    <color name="medbook_purple">#8043A0</color>
+    <color name="purple_divider_color">#997E3598</color>
+    <color name="black">#000</color>
+    <color name="main_background">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="gray_line">#d7c9e0</color>
+    <color name="profile_edit_picture_title">#31BCAD</color>
+    <color name="transparent_news_green">#4b32bcad</color>
+    <color name="news_turquoise">#31BBAD</color>
+    <color name="sub_menu_font_color">#88ADA9</color>
 </resources>

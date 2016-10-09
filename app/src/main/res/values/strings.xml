@@ -31,6 +31,53 @@
     <string name="navigation_cancel">Cancel</string>
     <string name="select">select</string>
     <string name="menu">menu</string>
+    <string name="alert">alert</string>
+    <string name="dashboard_version">Latihan frensky</string>
+    <string name="ok">ok</string>
+    <string name="side_bar_title">Menu</string>
+    <string name="hallo_world">Hallo World</string>
+    <string name="view_as_grid">View as grid</string>
+    <string name="view_as_list">View as list</string>
+    <string name="to_employee">To Employee View</string>
+    <string name="to_product">To Product View</string>
+    <string name="to_sales_information">To Employee Sales Information</string>
+    <string name="to_employee_project_information">To Employee Project Information</string>
+    <string name="logout">Logout</string>
+    <string name="desc_to_employee">Latihan layout dasar, dan juga CRUD database ORMlite</string>
+    <string name="desc_to_productview">Latihan penggunaan Recycleview dan latihan relation database</string>
+    <string name="desc_to_salesinformation">latihan penggunaan fragment dengan menggunakan viewpagger</string>
+    <string name="desc_to_projectinfo">Latihan penggunaan API dengan retrovit</string>
+    <string name="desc_to_logout">Latihan menggunakan shared Reference</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="product_name">Product name</string>
+    <string name="prince">Prince</string>
+    <string name="sales">Sales</string>
+    <string name="add_picture_product">Add picture product</string>
+    <string name="dollar">$</string>
+    <string name="add_picture_from_camera">Add picture from camera</string>
+    <string name="add_picture_from_gallery">Add picture from gallery</string>
+    <string name="Burnable">Burnable</string>
+    <string name="toxic">Toxic</string>
+    <string name="Breakable">Breakable</string>
+    <string name="chacrahteristic">Characteristic</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="jabatan">Jabatan</string>
+    <string name="age">Age</string>
+    <string name="join_date">Join date</string>
+    <string name="note">Note</string>
+
+
+    <string-array name="main_menu">
+        <item>View Dashboard </item>
+        <item>View as list</item>
+        <item>View as grid</item>
+    </string-array>
+
+    <string-array name="menu_images">
+        <item>@drawable/ic_dashboard</item>
+        <item>@drawable/ic_view_list</item>
+        <item>@drawable/ic_view_grid</item>
+    </string-array>
 
 
 </resources>

@@ -7,8 +7,23 @@
     <dimen name="navigation_icon_size">35dp</dimen>
 
     <!--dari fransky-->
+    <integer name="transition_duration">150</integer>
     <dimen name="navigation_spinner_width">180dp</dimen>
-
+    <dimen name="button_font_size">16sp</dimen>
+    <dimen name="status_bar_height">28dp</dimen>
+    <dimen name="medbooks_25dp">25dp</dimen>
+    <dimen name="medbooks_45dp">45dp</dimen>
+    <dimen name="medbooks_60dp">60dp</dimen>
+    <dimen name="medbooks_10dp">10dp</dimen>
+    <dimen name="medbooks_5dp">5dp</dimen>
+    <dimen name="font_20sp">20sp</dimen>
+    <dimen name="medbooks_20dp">20dp</dimen>
+    <dimen name="medbooks_12dp">12dp</dimen>
+    <dimen name="medbooks_30dp">30dp</dimen>
+    <dimen name="font_14sp">14sp</dimen>
+    <dimen name="medbooks_48dp">48dp</dimen>
+    <dimen name="font_16sp">16sp</dimen>
+    <dimen name="medbooks_90dp">90dp</dimen>
 
 
 </resources>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+  >
+
+    <com.tutor93.tugasfrensky.view.TextViewRegular
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:singleLine="true"
+        android:layout_height="wrap_content"
+        android:minHeight="80dp"
+        android:layout_alignParentTop="true"
+        android:ellipsize="marquee"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/status_bar_height"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:textColor="@color/news_purple"
+        android:text="@string/side_bar_title"
+        android:textSize="26sp"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_verified_user"
+        android:layout_marginTop="@dimen/status_bar_height"
+        android:paddingTop="@dimen/medbooks_25dp"
+        android:paddingBottom="@dimen/medbooks_25dp"
+        android:alpha="0.11"
+        android:visibility="visible"/>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"/>
+
+</RelativeLayout>

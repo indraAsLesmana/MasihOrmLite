@@ -3,13 +3,13 @@
     package="com.tutor93.tugasfrensky">
 
     <!--permision camera-->
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
     <!--permission external storage-->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!--permission internet-->
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <!--permission phone call-->
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -17,17 +17,30 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+
+        <activity android:name=".activity.MainActivity" />
+
+        <activity android:name=".activity.Add_employee">
+
+        </activity>
+        <activity android:name=".activity.LatihanApiMain" />
+        <activity android:name=".activity.ApiEmployeeForm" />
+        <activity android:name=".activity.MainMenu">
+
+        </activity>
+
+        <activity
+            android:name=".activity.MainFragment"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
-        <activity android:name=".Add_employee"/>
-        <activity android:name=".LatihanApiMain"/>
-        <activity android:name=".ApiEmployeeForm"/>
-        <activity android:name=".MainFragment"/>
+
+
     </application>
 
 </manifest>

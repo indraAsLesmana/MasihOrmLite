@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="com.tutor93.tugasfrensky.MainActivity">
+    tools:context="com.tutor93.tugasfrensky.activity.MainActivity">
 
     <FrameLayout
         android:id="@+id/MainFrame"
